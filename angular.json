@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "angular-mobilebaas"
+  "defaultProject": "angular-mobilebaas",
+  "cli": {
+    "analytics": "02e82282-f7a9-476d-b4e5-829ebf498088"
+  }
 }

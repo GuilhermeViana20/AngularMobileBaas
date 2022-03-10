@@ -18,6 +18,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { LocalDateTimePipe } from './pipe/local-date-time.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     MeetingListComponent,
     MeetingFormComponent,
+    LocalDateTimePipe,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatDatepickerModule,
     MatNativeDateModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

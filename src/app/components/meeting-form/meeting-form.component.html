@@ -2,39 +2,45 @@
 
 <form class="example-form" [formGroup]="meetingForm">
 
-    <input type="hidden" forControlName="id" name="id">
+    <input type="hidden" formControlName="id" name="id">
     
     <mat-form-field class="example-full-width">
         <mat-label>Nome:</mat-label>
-        <input matInput placeholder="" forControlName="name" name="name">
+        <input matInput placeholder="" formControlName="name" name="name">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
         <mat-label>Assunto:</mat-label>
-        <input matInput placeholder="" forControlName="subject" name="subject">
+        <input matInput placeholder="" formControlName="subject" name="subject">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
         <mat-label>Responsável:</mat-label>
-        <input matInput placeholder="" forControlName="responsible" name="responsible">
+        <input matInput placeholder="" formControlName="responsible" name="responsible">
     </mat-form-field>
 
     <div fxLayout="row wrap">
         <div fxFlex="50" fxFill fxLayoutAlign="start center">
             <mat-form-field>
                 <mat-label>Data</mat-label>
-                <input matInput [matDatepicker]="picker" forControlName="date">
+                <input matInput [matDatepicker]="picker" formControlName="date">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
         </div>
-        <div fxFlex="50" fxFill>
-
+        <div fxFlex="50" fxFill fxLayoutAlign="start center">
+            <mat-form-field>
+                <mat-label>Horário</mat-label>
+                <input matInput type="time" placeholder="" formControlName="time">
+            </mat-form-field>
         </div>
     </div>
 
     <div>
         <button mat-raised-button (click)="cancel()">Cancelar</button>
+        <button mat-raised-button color="primary" [disabled]="!meetingForm.valid" (click)="save()">
+            <mat-icon>add</mat-icon>Nova Reunião
+        </button>
     </div>
 
 </form>
