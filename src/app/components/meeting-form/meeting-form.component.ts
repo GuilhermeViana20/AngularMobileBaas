@@ -24,7 +24,7 @@ export class MeetingFormComponent implements OnInit {
 	
 	ngOnInit(): void {
 		this.meetingForm = this.formBuilder.group({
-			id: [null],
+			id			: [null],
 			name		: ['', Validators.required],
 			subject		: ['', Validators.required],
 			responsible	: ['', Validators.required],

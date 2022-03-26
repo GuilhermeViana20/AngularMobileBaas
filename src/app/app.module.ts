@@ -20,6 +20,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LocalDateTimePipe } from './pipe/local-date-time.pipe';
+import { DeleteComponent } from './components/delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { LocalDateTimePipe } from './pipe/local-date-time.pipe';
     MeetingListComponent,
     MeetingFormComponent,
     LocalDateTimePipe,
+    DeleteComponent,
   ],
   imports: [
     BrowserModule,

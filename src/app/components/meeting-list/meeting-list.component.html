@@ -1,40 +1,54 @@
+<div class="container">
+	<mat-form-field class="example-full-width">
+		<mat-label>Nome da Reunião</mat-label>
+		<input matInput placeholder="" [(ngModel)]="nameFind">
+	</mat-form-field>&nbsp;
+	<mat-form-field>
+		<mat-label>Data da Reunião</mat-label>
+		<input matInput [matDatepicker]="picker" [(ngModel)]="dateFind">
+		<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+		<mat-datepicker #picker></mat-datepicker>
+	</mat-form-field>&nbsp;
+	<button mat-raised-button color="primary" (click)="findByParameter()">Pesquisar</button>
+</div>
+
 <table mat-table [dataSource]="meetings" class="mat-elevation-z8">
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Nome </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+		<th mat-header-cell *matHeaderCellDef> Nome </th>
+		<td mat-cell *matCellDef="let element"> {{element.name}} </td>
     </ng-container>
 
     <ng-container matColumnDef="subject">
-      <th mat-header-cell *matHeaderCellDef> Título </th>
-      <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+		<th mat-header-cell *matHeaderCellDef> Título </th>
+		<td mat-cell *matCellDef="let element"> {{element.subject}} </td>
     </ng-container>
 
     <ng-container matColumnDef="responsible">
-      <th mat-header-cell *matHeaderCellDef> Responsável </th>
-      <td mat-cell *matCellDef="let element"> {{element.responsible}} </td>
+		<th mat-header-cell *matHeaderCellDef> Responsável </th>
+		<td mat-cell *matCellDef="let element"> {{element.responsible}} </td>
     </ng-container>
 
     <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef> Data </th>
-      <td mat-cell *matCellDef="let element"> {{element.date | localDateTime }}</td>
+		<th mat-header-cell *matHeaderCellDef> Data </th>
+		<td mat-cell *matCellDef="let element"> {{element.date | localDateTime }}</td>
     </ng-container>
 
     <ng-container matColumnDef="time">
-      <th mat-header-cell *matHeaderCellDef> Horário </th>
-      <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+		<th mat-header-cell *matHeaderCellDef> Horário </th>
+		<td mat-cell *matCellDef="let element"> {{element.time}} </td>
     </ng-container>
 
     <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef> Ação </th>
-      <td mat-cell *matCellDef="let element">
-        <button mat-mini-fab color="primary" (click)="confirmDelete(element.id)" aria-label="Delete">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-mini-fab color="warn" (click)="confirmDelete(element.id)" aria-label="Delete">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
+		<th mat-header-cell *matHeaderCellDef> Ação </th>
+		<td mat-cell *matCellDef="let element">
+			<button mat-mini-fab color="primary" (click)="edit(element.id)" aria-label="Edit">
+				<mat-icon>edit</mat-icon>
+			</button>&nbsp;
+			<button mat-mini-fab color="warn" (click)="confirmDelete(element.id)" aria-label="Delete">
+				<mat-icon>delete</mat-icon>
+			</button>
+		</td>
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
